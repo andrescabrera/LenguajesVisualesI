@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF10D261-53E9-4549-AD31-04C597C5AC1E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlAsistencia</RootNamespace>
+    <AssemblyName>ControlAsistencia</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.3.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\MySQL\Connector NET 6.3.7\Assemblies\v4.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.3.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\MySQL\Connector NET 6.3.7\Assemblies\v4.0\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.3.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\MySQL\Connector NET 6.3.7\Assemblies\v4.0\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComboBoxItemTipoEmpleado.cs" />
+    <Compile Include="ListaPresentismo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaPresentismo.Designer.cs">
+      <DependentUpon>ListaPresentismo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarHorarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarHorarios.Designer.cs">
+      <DependentUpon>EditarHorarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAusencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAusencia.Designer.cs">
+      <DependentUpon>EditAusencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaHorarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaHorarios.Designer.cs">
+      <DependentUpon>ListaHorarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCargaHoraria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCargaHoraria.Designer.cs">
+      <DependentUpon>EditCargaHoraria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEmpleados.Designer.cs">
+      <DependentUpon>EditEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Administrativo.cs" />
+    <Compile Include="Clases\Asistencia.cs" />
+    <Compile Include="Clases\Ausencia.cs" />
+    <Compile Include="Clases\CargaHoraria.cs" />
+    <Compile Include="Clases\ControlLaboral.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clases\Empleado.cs" />
+    <Compile Include="Clases\Horario.cs" />
+    <Compile Include="Clases\Operario.cs" />
+    <Compile Include="Clases\Vendedor.cs" />
+    <Compile Include="Data\DB\DaosImpl\AdministrativoBDDaoImpl.cs" />
+    <Compile Include="Data\DB\DaosImpl\AusenciaBDDaoImpl.cs" />
+    <Compile Include="Data\DB\DaosImpl\CargaHorariaBDDaoImpl.cs" />
+    <Compile Include="Data\DB\DaosImpl\AsistenciaBDDaoImpl.cs" />
+    <Compile Include="Data\DB\DaosImpl\DBDao.cs" />
+    <Compile Include="Data\DB\DaosImpl\HorarioBDDaoImpl.cs" />
+    <Compile Include="Data\DB\DaosImpl\OperarioBDDaoImpl.cs" />
+    <Compile Include="Data\DB\DBEstrategiaPersistenceManager.cs" />
+    <Compile Include="Data\DB\DBManagers\MySqlDBManager.cs" />
+    <Compile Include="Data\EstrategiaPersistenceManager.cs" />
+    <Compile Include="Data\DB\DaosImpl\VendedorBDDaoImpl.cs" />
+    <Compile Include="Data\DB\IDBManager.cs" />
+    <Compile Include="Data\IAdministrativoDAO.cs" />
+    <Compile Include="Data\IAsistenciaDAO.cs" />
+    <Compile Include="Data\IAusenciaDAO.cs" />
+    <Compile Include="Data\ICargaHorariaDAO.cs" />
+    <Compile Include="Data\DB\DBManagers\OleDBManager.cs" />
+    <Compile Include="Data\IOperarioDAO.cs" />
+    <Compile Include="Data\PersistenceManager.cs" />
+    <Compile Include="Data\IHorarioDAO.cs" />
+    <Compile Include="Data\IVendedorDAO.cs" />
+    <Compile Include="Helpers\DataGridViewHelper.cs" />
+    <Compile Include="ListaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaEmpleados.Designer.cs">
+      <DependentUpon>ListaEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\ServicioAsistencia.cs" />
+    <Compile Include="Servicios\ServicioAusencia.cs" />
+    <Compile Include="Servicios\ServicioHorario.cs" />
+    <Compile Include="Servicios\FachadaServiciosEmpleado.cs" />
+    <Compile Include="Servicios\IServicio.cs" />
+    <Compile Include="Servicios\ServicioCargaHoraria.cs" />
+    <Compile Include="Servicios\ServicioControlLaboral.cs" />
+    <Compile Include="Servicios\PersistenceManagerProvider.cs" />
+    <Compile Include="Servicios\Servicio.cs" />
+    <Compile Include="Servicios\ServicioAdministrativo.cs" />
+    <Compile Include="Servicios\ServicioOperario.cs" />
+    <Compile Include="Servicios\ServicioVendedor.cs" />
+    <EmbeddedResource Include="ListaPresentismo.resx">
+      <DependentUpon>ListaPresentismo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarHorarios.resx">
+      <DependentUpon>EditarHorarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAusencia.resx">
+      <DependentUpon>EditAusencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaHorarios.resx">
+      <DependentUpon>ListaHorarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditEmpleados.resx">
+      <DependentUpon>EditEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaEmpleados.resx">
+      <DependentUpon>ListaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

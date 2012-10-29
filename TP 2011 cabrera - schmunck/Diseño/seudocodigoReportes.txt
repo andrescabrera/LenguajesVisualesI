@@ -1,0 +1,67 @@
+Al arrancar el día, el sistema crea a partir del día actual, 
+para cada empleado los objetos ausencia, con las fechas estimadas del Horario.
+Si el empleado llega a la mitad del día, se destruye la ausencia, 
+//Logica de Negocios general:
+y se instancia el objeto Asistencia con los estimados de la Ausencia 
+(para evitar que haya cambios si hubo cambios en la carga horaria)
+y pongo la hora actual en la fecha de llegada y cuando el empleado se va, 
+pongo la fecha de salida en la hora que se registre en ese momento.
+Si el empleado no vino en todo el día, vamos a saber que falto.
+Si el empleado vino un rato, 
+vamos a saberlo haciendo las diferencias en el objeto Asistencia.
+
+//Lógica de Negocios ControlLaboral
+Te pregunta de que empleado, y entre que fechas buscar: desde y hasta.
+para el empleado ingresado: busca todas las asistencias del empleado
+	List<Asistencias> buscarAsistenciasDelEmpleadoEnRangoDeFechas(idEmpleado, fechaDesde, fechaHasta);
+para el empleado ingresado: busca todas las ausencias del empleado
+	List<Ausencias> buscarAusenciasDelEmpleadoEnRangoDeFechas(idEmpleado, fechaDesde, fechaHasta);
+
+if(fechas esten dentro del periodo)....
+	
+//Reporte 1.1	
+//Cantidad de horas extras: diferencia positiva entre lo real y lo pautado.
+public float calcularHorasTrabajadas(idEmpleado, fechaDesde, fechaHasta)
+{
+	List<Asistencias> asistencias = buscarAsistenciasDelEmpleadoEnRangoDeFechas(idEmpleado, fechaDesde, fechaHasta);
+	float TotalTrabajado = 0;
+	foreach(Asistencia asistencia in asistencias)
+	{
+		totalTrabajado += fechaHasta - fechaDesde;
+	}
+	return totalTrabajado;
+}
+
+//1.2 Porcentaje de cumplimiento de horario //OJO tiene que ser en un periodo de tiempo.
+calcularPorcentajeCumplimiento(List<Asistencias> asistencias)
+{
+	List<Asistencias> asistencias = buscarAsistenciasDelEmpleadoEnRangoDeFechas(idEmpleado, fechaDesde, fechaHasta);
+	foreach(Asistencia asistencia in asistencias)
+	{
+		//1.3 Cantidad de impuntualidades en el horario de ingreso y cantidad de impuntualidades en el horario de egreso
+		if(fechaEstimadaDesde < fechaDesde)
+			contLlegadasTarde++;
+		if(fechaEstimadaHasta > fechaHasta)
+			contSalidasTemprano++;		
+	}
+	
+	//Porcentajes Individuales
+	porcentajeLlegadasTarde = (contLlegadasTarde*100)/Asistencias.count());
+	porcentajeSalidasTemprano = (contSalidasTemprano*100)Asistencias.count());
+	
+	totalImpuntualidad = contLlegadasTarde + contSalidasTemprano + Ausencias.count();
+	totalCumplimiento = totalPactado - totalImpuntualidad;
+	totalPactado = asistencias.count() + ausencias.count();		
+	
+	porcentajeCumplimiento = (totalCumplimiento*100)/totalPactado;
+	porcentajeInCumplimiento = (totalImpuntualidad*100)/totalPactado;
+}
+
+//1.4 Detalle de asistencia día a día, mostrando horario de ingreso y egreso estimado y real.
+//Recorrer y mostrar asistencias. Una grilla ordenada por fecha cronologicamente: fechaAsistencia | fechaEntradaEstimada | fechaEntradaReal | fechaSalidaEstimada | fechaSalidaReal
+
+//En un periodo de tiempo:
+//2.1 Cantidad de horas trabajadas por cada empleado y general. Desvío entre lo pautado y lo trabajado por empleado y general. 
+//Cantidad de horas trabajadas en general: suma de las de cada empleado.
+//Desvio en general: la suma de los desvios de cada empleado, la diferencia expresado en porcentaje.
+
